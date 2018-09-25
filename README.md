@@ -224,9 +224,9 @@ Options:
     "default-src 'self'",
     "object-src 'none'",
     "connect-src 'self'",
-    "img-src 'self' https://www.google-analytics.com/collect",
+    "img-src 'self' https://www.google-analytics.com/",
     "font-src 'self' https://fonts.gstatic.com/ https://use.fontawesome.com/",
-    "script-src 'self' https://apis.google.com/ https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/",
+    "script-src 'self' https://www.google-analytics.com/ https://www.googletagmanager.com/",
     "style-src 'self' https://fonts.googleapis.com/ https://use.fontawesome.com/"
   ]],
   ["X-Content-Type-Options", "nosniff"],
