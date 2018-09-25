@@ -201,17 +201,39 @@ Usage: reload [options]
 
 Options:
 
-  -h, --help                     output usage information
-  -V, --version                  output the version number
-  -b, --browser                  Open in the browser automatically.
-  -n, --hostname [hostname]      If -b flag is being used, this allows for custom hostnames. Defaults to localhost.
-  -d, --dir [dir]                The directory to serve up. Defaults to current dir.
-  -w, --watch-dir [watch-dir]    The directory to watch. Defaults the serving directory.
-  -e, --exts [extensions]        Extensions separated by commas or pipes. Defaults to html,js,css.
-  -p, --port [port]              The port to bind to. Can be set with PORT env variable as well. Defaults to 8080
-  -s, --start-page [start-page]  Specify a start page. Defaults to index.html
-  -v, --verbose [verbose]        Turning on logging on the server and client side. Defaults to false
+  -h, --help                        output usage information
+  -V, --version                     output the version number
+  -b, --browser                     Open in the browser automatically.
+  -n, --hostname [hostname]         If -b flag is being used, this allows for custom hostnames. Defaults to localhost.
+  -d, --dir [dir]                   The directory to serve up. Defaults to current dir.
+  -w, --watch-dir [watch-dir]       The directory to watch. Defaults the serving directory.
+  -e, --exts [extensions]           Extensions separated by commas or pipes. Defaults to html,js,css.
+  -p, --port [port]                 The port to bind to. Can be set with PORT env variable as well. Defaults to 8080
+  -s, --start-page [start-page]     Specify a start page. Defaults to index.html
+  -v, --verbose [verbose]           Turning on logging on the server and client side. Defaults to false
+      --headers-json [headers-json] Http headers to add serving contents
 
+```
+
+#### Example for headers-json
+
+```json
+[
+  ["Strict-Transport-Security", "max-age=31536000"],
+  ["Content-Security-Policy", [
+    "default-src 'self'",
+    "object-src 'none'",
+    "connect-src 'self'",
+    "img-src 'self' https://www.google-analytics.com/collect",
+    "font-src 'self' https://fonts.gstatic.com/ https://use.fontawesome.com/",
+    "script-src 'self' https://apis.google.com/ https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/",
+    "style-src 'self' https://fonts.googleapis.com/ https://use.fontawesome.com/"
+  ]],
+  ["X-Content-Type-Options", "nosniff"],
+  ["X-Frame-Options", "DENY"],
+  ["X-XSS-Protection", "1; mode=block"],
+  ["Referrer-Policy", "same-origin"]
+]
 ```
 
 License
