@@ -16,7 +16,7 @@ program.version(require('../package.json').version)
   .option('-p, --port [port]', 'The port to bind to. Can be set with PORT env variable as well. Defaults to 8080', '8080')
   .option('-s, --start-page [start-page]', 'Specify a start page. Defaults to index.html', 'index.html')
   .option('-v, --verbose [verbose]', 'Turning on logging on the server and client side. Defaults to false', false)
-  .option('--headers-json [headers-json]', 'Headers for http to add serving contents')
+  .option('    --headers-json', 'Http headers to add serving contents')
   .parse(process.argv)
 
 var runFile = path.join(os.tmpdir(), 'reload-' + Math.random().toString().slice(2))
