@@ -31,14 +31,7 @@ if (typeof program.watchDir === 'undefined') {
   program.watchDir = program.dir
 }
 
-var headers
-if (program.headersJson === 'undefined') {
-  headers = []
-} else {
-  headers = JSON.parse(fs.readFileSync(program.headersJson))
-}
-
-var args = ['-e', program.exts, '-w', program.watchDir, '-q', '--', serverFile, program.port, program.dir, !!program.browser, program.hostname, runFile, program.startPage, program.verbose, headers]
+var args = ['-e', program.exts, '-w', program.watchDir, '-q', '--', serverFile, program.port, program.dir, !!program.browser, program.hostname, runFile, program.startPage, program.verbose, program.headersJson]
 supervisor.run(args)
 
 console.log('\nReload web server:')
